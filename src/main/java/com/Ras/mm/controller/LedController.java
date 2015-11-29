@@ -24,7 +24,7 @@ public class LedController {
 		
 		getPin().toggle();
 		
-		return (getPin().getState().toString());
+		return (getPin().getState()).toString();
 	}
 	
 	public GpioPinDigitalOutput getPin() {
