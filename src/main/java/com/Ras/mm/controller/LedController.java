@@ -41,7 +41,7 @@ public class LedController {
 	public String blink() {
 		
 	
-		getPin().blink(50L, 5000L);
+		getPin().blink(25L, 10000L);
 		
 		
 		return "Blinking";
