@@ -41,10 +41,10 @@ public class LedController {
 	public String blink() {
 		
 	
-		getPin().blink(100L, 10000L);
+		getPin().blink(50L, 5000L);
 		
 		
-		return "Blinking 10 times";
+		return "Blinking";
 	}
 	
 	
