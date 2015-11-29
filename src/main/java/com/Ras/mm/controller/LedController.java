@@ -43,6 +43,9 @@ public class LedController {
 	
 		getPin().blink(25L, 10000L);
 		
+		if (getPin().getState() == PinState.HIGH) {
+			getPin().setState(PinState.LOW);
+		}
 		
 		return "Blinking";
 	}
