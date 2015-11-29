@@ -22,7 +22,7 @@ public class LedController {
 	@RequestMapping("/light")
 	public String light() {
 		
-		pin.toggle();
+		getPin().toggle();
 		
 		return (getPin().getState().toString());
 	}
