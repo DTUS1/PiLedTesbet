@@ -24,9 +24,31 @@ public class LedController {
 		
 		getPin().toggle();
 		
-		return (getPin().getState()).toString();
+		String s = String.format("Led State: %s",((getPin().getState()).toString()));
+		
+		return s;
 	}
 	
+	@RequestMapping("/pulse")
+	public String pulse() {
+		
+		getPin().pulse(500L);
+		
+		return "Pulsing for .5 seconds";
+	}
+	
+	@RequestMapping("/blink")
+	public String blink() {
+		
+		for(int c = 0; c < 10; c++) {
+		getPin().blink(500L, 500L);
+		}
+		
+		return "Blinking 10 times";
+	}
+	
+	
+
 	public GpioPinDigitalOutput getPin() {
 		
 		if(pin == null) {
