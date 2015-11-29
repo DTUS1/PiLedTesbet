@@ -16,7 +16,7 @@ public class LedController {
 	
 	@RequestMapping("/")
 	public String hi() {
-		return "Hello World";
+		return "Running";
 	}
 
 	@RequestMapping("/light")
@@ -40,9 +40,9 @@ public class LedController {
 	@RequestMapping("/blink")
 	public String blink() {
 		
-		for(int c = 0; c < 10; c++) {
-		getPin().blink(500L, 500L);
-		}
+	
+		getPin().blink(100L, 10000L);
+		
 		
 		return "Blinking 10 times";
 	}
