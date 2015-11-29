@@ -2,7 +2,6 @@ package com.Ras.mm.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
@@ -19,7 +18,7 @@ public class LedController {
 		return "Running";
 	}
 
-	@RequestMapping("/light")
+	@RequestMapping("/toggle")
 	public String light() {
 		
 		getPin().toggle();
@@ -27,6 +26,26 @@ public class LedController {
 		String s = String.format("Led State: %s",((getPin().getState()).toString()));
 		
 		return s;
+	}
+	
+	@RequestMapping("/on")
+	public String on() {
+		
+		if(getPin().getState() == PinState.LOW) {
+		getPin().setState(PinState.HIGH);
+		}
+		
+		return "Led State: HIGH";
+	}
+	
+	@RequestMapping("/off")
+	public String off() {
+		
+		if(getPin().getState() == PinState.HIGH) {
+		getPin().setState(PinState.LOW);
+		}
+		
+		return "Led State: LOW";
 	}
 	
 	@RequestMapping("/pulse")
