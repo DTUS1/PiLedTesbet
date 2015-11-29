@@ -22,17 +22,20 @@ public class LedController {
 	@RequestMapping("/light")
 	public String light() {
 		
-		if(pin == null) {
-			
-		
-		GpioController gpio = GpioFactory.getInstance();
-		pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01, "Led1", PinState.LOW);
-		
-		}
-		
 		pin.toggle();
 		
-		return "toggled";
+		return (getPin().getState().toString());
+	}
+	
+	public GpioPinDigitalOutput getPin() {
+		
+		if(pin == null) {
+			
+			GpioController gpio = GpioFactory.getInstance();
+			pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01, "Led1", PinState.LOW);
+			
+			}
+		return pin;
 	}
 	
 }
