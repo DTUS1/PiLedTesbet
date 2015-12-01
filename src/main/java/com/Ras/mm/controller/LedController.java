@@ -15,7 +15,9 @@ public class LedController {
 	
 	@RequestMapping("/")
 	public String hi() {
-		return "Running";
+		String hi = String.format("\n \n CMDS: \n /on \n /off \n /toggle \n /pulse \n /blink \n /seiz25 \n /seiz50");
+		
+		return "Running" + hi;
 	}
 
 	@RequestMapping("/toggle")
@@ -69,8 +71,24 @@ public class LedController {
 		return "Blinking";
 	}
 	
+	@RequestMapping("/seiz50")
+	public String seiz() {
+		
+		getPin().blink(50L, 10000L);
+		
+		return "Seizing at 50 Hz";		
+	}
 	
-
+	
+	@RequestMapping("/seiz25")
+	public String seiz1() {
+		
+		getPin().blink(25L, 10000L);
+		
+		return "Seizing at 25 Hz";		
+	}
+	
+	
 	public GpioPinDigitalOutput getPin() {
 		
 		if(pin == null) {
