@@ -74,7 +74,7 @@ public class LedController {
 	@RequestMapping("/seiz50")
 	public String seiz() {
 		
-		getPin().blink(500L, 10000L);
+		getPin().blink(25L, 10000L);
 		
 		return "Seizing at 50 Hz";		
 	}
@@ -83,7 +83,7 @@ public class LedController {
 	@RequestMapping("/seiz25")
 	public String seiz1() {
 		
-		getPin().blink(25L, 10000L);
+		getPin().blink(12L, 10000L);
 		
 		return "Seizing at 25 Hz";		
 	}
