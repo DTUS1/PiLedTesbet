@@ -68,13 +68,13 @@ public class LedController {
 			getPin().setState(PinState.LOW);
 		}
 		
-		return (getPin().getState()).toString();
+		return  "Blinking";
 	}
 	
 	@RequestMapping("/seiz50")
 	public String seiz() {
 		
-		getPin().blink(50L, 10000L);
+		getPin().blink(500L, 10000L);
 		
 		return "Seizing at 50 Hz";		
 	}
