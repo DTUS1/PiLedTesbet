@@ -68,7 +68,7 @@ public class LedController {
 			getPin().setState(PinState.LOW);
 		}
 		
-		return "Blinking";
+		return (getPin().getState()).toString();
 	}
 	
 	@RequestMapping("/seiz50")
